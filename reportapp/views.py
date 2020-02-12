@@ -16,7 +16,6 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import get_template
-from django.template import Context
 from django.template.loader import render_to_string
 
 # Create your views here.
@@ -282,6 +281,7 @@ class contactus(View):
             i = True
             
             return render(request,'contactus.html',{'contact_form':contact_form,'i':i})
+
 
 class aboutus(TemplateView):
     template_name = 'aboutus.html'
