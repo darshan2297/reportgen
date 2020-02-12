@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% extends 'master.html' %}
+<!-- {% load crispy_forms_tags %} -->
+
+{% block title %} Registration {% endblock %}
+
+{% block content %}
+
+<center><form action="{% url 'reportapp:basicinfo' %}" class="uniForm" method="POST" enctype="multipart/form-data">
+    <div class="container mt-5 mb-5">
+        <div class="card" style="width: 30rem;">
+            <div class="card-body">
+              <h2 class="card-title text-center">Basic Form</h2>
+              <table class="table">
+                {% csrf_token %}
+                  <tr>
+                      <th>{{basic_form|crispy}}</th>
+                  </tr>
+              </table>
+              <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+              <!-- <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a> -->
+              <button type="submit" class="btn btn-success btn-lg">Next</button>
+            </div>
+            
+          </div>
+    </div>
+</form> </center>
+
+
+{% endblock %}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% extends 'master.html' %}
+    {% block title %}Home{% endblock %}
+
+
+    {% block content %}
+        <div class="jumbotron">
+            <div class="container">
+            <h1 class="display-4">Hurry UP!!!!</h1>
+            <h2 class="lead">Generate Monthly Progress Report</h2>
+            <p>Step1: Register First.</p>
+            <p>Step2: Click Make Report.</p>
+            <p>Step3: Stored Data Daily.</p>
+            <p>Step4: MonthEnd Generate Report.</p>
+            <hr class="my-4">
+            <a class="btn btn-success btn-lg" href="{% url 'reportapp:generatereport' %}" role="button">Generate</a>
+        </div>
+    </div>
+    {% endblock %}

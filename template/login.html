@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% extends 'master.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} Login {% endblock %}
+
+{% block content %}
+<center><form action="login" class="uniForm" method="POST" enctype="multipart/form-data">
+    <div class="container mt-5 mb-5">
+        <div class="card" style="width: 30rem;">
+            <div class="card-body">
+              <h2 class="card-title text-center">Login Form</h2>
+              <table class="table">
+                {% csrf_token %}
+                  <tr>
+                      <th>{{ logform|crispy }} {% if request.GET.next %}
+                        <input type="hidden" name="next" value="{{request.GET.next}}"> {% endif %}
+                      </th>
+                  </tr>
+              </table>
+              <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+              <!-- <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a> -->
+              <button type="submit" class="btn btn-primary btn-lg">Login</button>
+            </div>
+            
+          </div>
+    </div>
+</form> </center>
+{% endblock %}

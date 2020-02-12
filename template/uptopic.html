@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% extends 'master.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} Login {% endblock %}
+
+{% block content %}
+<center><form action="" class="uniForm" method="POST" enctype="multipart/form-data">
+    <div class="container mt-5 mb-5">
+        <div class="card" style="width: 50rem;">
+            <div class="card-body">
+              <h2 class="card-title text-center">Update Form</h2>
+              <table class="table">
+                {% csrf_token %}
+                  <tr>
+                      <th>{{ topic_form|crispy }}</th>
+                  </tr>
+              </table>
+              <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+              <!-- <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a> -->
+              <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#mymodel">
+              Update
+            </button>
+            <!-- Modal -->
+            
+              {% csrf_token %}
+            <div class="modal fade" id="mymodel" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Update Topic</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    Are You Sure Update the Topic?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" value="Yes" class="btn btn-warning">Yes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+    </div>
+</form>
+</center>
+
+{% endblock %}

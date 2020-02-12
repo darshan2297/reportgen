@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+{% extends 'master.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} Generate Report {% endblock %}
+
+{% block content %}
+
+{% for pro in p %}
+<p align="center" class="mt-5">
+    <strong>
+        {{pro.collage_name}}
+    </strong>
+</p>
+<p align="center">
+    <strong>{{pro.address}}</strong>
+</p>
+<p align="center">
+    <strong>{{pro.mobno}}</strong>
+</p>
+<p align="center">
+    <strong>Period : From </strong>
+    <u><strong>{{sdate}}</strong></u>
+    <strong> TO </strong>
+    <u><strong>{{edate}}</strong></u>
+</p>
+<center><table border="1" width="559" cellpadding="7" cellspacing="0">
+    <colgroup>
+        <col width="177"/>
+        <col width="352"/>
+    </colgroup>
+    <tbody>
+        <tr>
+            <td width="177">
+                <p align="left">
+                    <strong>Name of the Student</strong>
+                </p>
+            </td>
+            <td width="352" valign="top">
+                <p align="center">
+                    <strong>{{pro.firstname}} {{pro.fathername}} {{pro.lastname}} </strong>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="177">
+                <p align="left">
+                    <strong>PID</strong>
+                </p>
+            </td>
+            <td width="352" valign="top">
+                <p align="center">
+                    <strong>{{pro.pid}}</strong>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="177">
+                <p align="justify">
+                    <strong>Project Title</strong>
+                </p>
+            </td>
+            <td width="352" valign="top">
+                <p align="center">
+                    <strong>{{pro.project_title}}</strong>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="177">
+                <p align="justify">
+                    <strong>Organization Name</strong>
+                </p>
+            </td>
+            <td width="352" valign="top">
+                <p align="center">
+                    <strong>{{pro.company_name}}</strong>
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table></center><br>
+<center><table class="mb-5" border="1" width="559" cellpadding="7" cellspacing="0">
+    <colgroup>
+        <col width="543"/>
+    </colgroup>
+        <tr>
+            <th>
+                <h2 align="center">
+                    <strong>Work done during last month</strong>
+                </h2>
+            </th>
+        </tr>
+        <tr> 
+            <tbody>
+            <td>  
+                <b align="left">
+                    Topic :-
+                    {% for t in tuser %}
+                            "{{t.date}}" 
+                            {{t.topic}},
+                    {% endfor %}
+                </b>
+                <hr>
+                <ul>
+                    {% for d in duser %}
+                    <li>
+                        <p align="left">
+                            {{d.subtopic}}
+                        </p>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tbody>
+        </tr>
+</table></center>
+<p class="text-center mb-5">
+    <strong>Guide’s Signature</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <strong >Student’s Signature</strong>
+</p>
+
+<center><button type="button" class="btn btn-success btn-lg mt-5 mb-5" onclick="window.print()">Print</button></center>
+
+
+{%endfor%}
+{%endblock%}

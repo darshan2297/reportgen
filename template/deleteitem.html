@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% extends 'master.html' %}
+
+{% block title %} Daily Records {% endblock %}
+
+{% block content %}
+
+
+<div class="container mt-5 mb-5">
+<a href="{% url 'reportapp:topicdisplay' %}" rol="button" class="btn btn-primary mb-2 ml">Topic List</a>  
+<table class="table text-center ">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Topic</th>
+        <th scope="col">Subtopic</th>
+        <th scope="col">Date</th>
+        <th scope="col" class="text-center">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for d in did %}
+      <tr>
+        <th>{{d.pk}}</th>
+        <td>{{d.topic}}</td>
+        <td>{{d.subtopic}}</td>
+        <td>{{d.date}}</td>
+        <form action="" method="POST">
+        <td><a href="" role="button" class="btn btn-warning mr-3" value="Update">Update</a> 
+          {% csrf_token %}
+          <button  type="submit" class="btn btn-danger">Delete</button>
+        </td>
+      </form>
+      </tr>
+    </tbody>
+      {% endfor %}
+</table>
+   
+</div>
+
+{% endblock %}

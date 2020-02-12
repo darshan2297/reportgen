@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% extends 'master.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} Contact Us {% endblock %}
+
+{% block content %}
+{% if i == True %}
+<div class="container mt-5">
+  <div class="jumbotron">
+    <h1> Thank You For Contact Us.</h1>
+    <h2> Your Mail Has Been Send.</h2>
+    <p> Very Short Time In Our Team Contact To You Via Email.</p>
+  </div>
+</div>
+{%else%}
+<center><form action="contactus" class="uniForm" method="POST" enctype="multipart/form-data">
+    <div class="container mt-5 mb-5">
+        <div class="card" style="width: 50rem;">
+            <h2 class="card-header text-center text-white bg-dark">Contact Us</h2>
+            <div class="card-body ">
+              <table class="table">
+                {% csrf_token %}
+                  <tr>
+                      <th>{{ contact_form|crispy }}
+                      </th>
+                  </tr>
+              </table>
+              <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+              <!-- <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a> -->
+              <button type="submit" class="btn btn-success btn-lg">Send</button>
+            </div>
+            
+          </div>
+    </div>
+</form> </center>
+{%endif%}
+
+{% endblock %}
