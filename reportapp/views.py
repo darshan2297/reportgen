@@ -283,7 +283,6 @@ class contactus(View):
             
             return render(request,'contactus.html',{'contact_form':contact_form,'i':i})
 
-
 class aboutus(TemplateView):
     template_name = 'aboutus.html'
     
