@@ -107,7 +107,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'darshanvankawala2297@gmail.com'
-EMAIL_HOST_PASSWORD = 'darshan@2297'
+EMAIL_HOST_PASSWORD = 'darshu@1997'
 
 
 # Internationalization
