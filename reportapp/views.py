@@ -239,6 +239,7 @@ class deltopicview(View):
             return redirect('reportapp:topicdisplay')
     
 class generatereport(View):
+    @method_decorator(login_required(login_url='reportapp:login'))
     def get(self,request,*args,**kwargs):
         report_form=reportform()
         return render(request,'reportform.html',{'report_form':report_form})
