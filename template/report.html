@@ -5,9 +5,8 @@
 
 {% block content %}
 
-
 <div class="container mt-5 mb-5">
-<a href="{% url 'reportapp:topicdisplay' %}" rol="button" class="btn btn-primary mb-2 ml">Topic List</a>  
+<a href="{% url 'reportapp:topicdisplay' %}" rol="button" class="btn btn-primary mb-2">Topic List</a>  
 <table class="table text-center ">
     <thead class="thead-dark">
       <tr>
@@ -30,35 +29,11 @@
           {% csrf_token %}
           <button  type="submit" class="btn btn-danger">Delete</button>
         </td>
-      </form>
+        </form>
       </tr>
-    </tbody>
- 
-      <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Delete Record</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                Are You Sure Delete The Record??
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                
-              </div>
-            </div>
-          </div>
-        </div>
-
-
       {% endfor %}
-</table>
-   
-</div>
+    </tbody>
 
+</table>
+</div>
 {% endblock %}
